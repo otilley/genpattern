@@ -7,10 +7,10 @@ function setup() {
   angleMode(DEGREES);
   strokeWeight(2);
   noFill();
-  sphereColorPicker = createColorPicker("#ff3d8d");
+  sphereColorPicker = createColorPicker("#ff1100");
   sphereColorPicker.attribute("aria-label", "Sphere color");
   createSpan(" Sphere color ");
-  boxColorPicker = createColorPicker("#00d9ff");
+  boxColorPicker = createColorPicker("#e1ff00");
   boxColorPicker.attribute("aria-label", "Box color");
   createSpan(" Box color ");
   backgroundColorPicker = createColorPicker("#000000");
