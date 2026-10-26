@@ -1,14 +1,25 @@
+let sphereColorPicker;
+let boxColorPicker;
+let backgroundColorPicker;
+
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   angleMode(DEGREES);
   strokeWeight(2);
   noFill();
-  stroke("red");
-
+  sphereColorPicker = createColorPicker("#ff3d8d");
+  sphereColorPicker.attribute("aria-label", "Sphere color");
+  createSpan(" Sphere color ");
+  boxColorPicker = createColorPicker("#00d9ff");
+  boxColorPicker.attribute("aria-label", "Box color");
+  createSpan(" Box color ");
+  backgroundColorPicker = createColorPicker("#000000");
+  backgroundColorPicker.attribute("aria-label", "Background color");
+  createSpan(" Background color");
 }
 
 function draw() {
-  background("black");
+  background(backgroundColorPicker.value());
 
  
   orbitControl();
@@ -27,18 +38,21 @@ function draw() {
 
 push();
 translate(-1000, 0, 0);
-
+stroke(boxColorPicker.value());
 box(35);
 pop();
 rotateY(frameCount * 0.3);
 push();
+stroke(sphereColorPicker.value());
 sphere(18);
 
 pop();
 
      if (xAngle % 60 === 0) {
+  stroke(sphereColorPicker.value());
   sphere(20);
 } else {
+  stroke(boxColorPicker.value());
   box(30);
 }
       pop();
